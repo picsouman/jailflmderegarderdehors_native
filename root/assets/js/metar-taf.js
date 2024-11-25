@@ -10,7 +10,22 @@ const loadMetarTaf = () => {
     }
 
     getMetar('LFLY').then(metar => {
-        const lflyMetarElement = document.querySelector('#lfly.metar');
-        lflyMetarElement.innerHTML = metar;
+        const contentElement = document.getElementById('lfly-metar');
+        contentElement.innerHTML = metar;
+    })
+
+    getTaf('LFLY').then(metar => {
+        const contentElement = document.getElementById('lfly-taf');
+        contentElement.innerHTML = metar;
+    })
+
+    getMetar('LFLN').then(metar => {
+        const contentElement = document.getElementById('lfln-metar');
+        contentElement.innerHTML = metar;
+    })
+
+    getMetar('LFLH').then(metar => {
+        const contentElement = document.getElementById('lflh-metar');
+        contentElement.innerHTML = metar;
     })
 }

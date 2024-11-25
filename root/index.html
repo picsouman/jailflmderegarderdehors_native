@@ -6,6 +6,10 @@
     <title>J'ai LFLM de regarder dehors</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/metar-taf.css">
+    <link rel="stylesheet" href="assets/css/radar.css">
+    <link rel="stylesheet" href="assets/css/windy.css">
+    <link rel="stylesheet" href="assets/css/scheduler.css">
+    <link rel="stylesheet" id="astra-google-fonts-css" href="https://fonts.googleapis.com/css?family=Nunito%3A400%7CChango%3A400%2C700&amp;display=fallback&amp;ver=4.6.13" media="all">
 </head>
 <body>
     <div id="viewport" class="bg-final">
@@ -17,13 +21,21 @@
 
                 <li id="time">
                 </li>
-
             </ol>
         </nav>
 
         <div id="main">
             <div class="tab" id="metar-taf" data-loader="loadMetarTaf" data-delay="15000" data-bg="bg-final" data-title="Metar / Taf">
-                <div id="lfly" class="metar"></div>
+                <div class="bloc">
+                    <div class="title">METAR</div>
+                    <div id="lfly-metar" class="data"></div>
+                    <div id="lfln-metar" class="data"></div>
+                    <div id="lflh-metar" class="data"></div>
+                </div>
+                <div class="bloc">
+                    <div class="title">TAF</div>
+                    <div id="lfly-taf" class="data"></div>
+                </div>
             </div>
             <div class="tab" id="radar" data-loader="loadRadar" data-delay="10000" data-bg="bg-clouds" data-title="Radar">
             </div>

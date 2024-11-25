@@ -1,0 +1,15 @@
+#scheduler{
+    display: flex;
+    justify-content: stretch;
+    align-items: flex-start;
+}
+
+#scheduler iframe {
+    flex-grow: 1;
+    border: none;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    height: 600px;
+    max-height: 100%;
+}
