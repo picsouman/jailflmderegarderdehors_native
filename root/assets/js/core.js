@@ -10,7 +10,7 @@ Array.prototype.forEach.call(tabs, function (tab) {
     }
 
     // génération du menu
-    navOlElement.innerHTML += '<li><a href="">' + tab.getAttribute('data-title') + '</a></li>'
+    navOlElement.innerHTML += '<li><a id="menu-' + tab.id + '" href="#">' + tab.getAttribute('data-title') + '</a></li>'
 })
 
 const showTab = (tab) => {
@@ -23,6 +23,18 @@ const showTab = (tab) => {
     {
         viewPortElement.classList.add(defaultBgClassName)
     }
+
+    const menuLinks = document.querySelectorAll('nav ol li a')
+    Array.prototype.forEach.call(menuLinks, function (menuLink) {
+        if(menuLink.id === 'menu-' + tab.id)
+        {
+            menuLink.classList.add('active')
+        }
+        else
+        {
+            menuLink.classList.remove('active')
+        }
+    })
 
     Array.prototype.forEach.call(tabs, (tabIter) => {
         if(tabIter !== tab)
