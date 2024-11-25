@@ -40,21 +40,22 @@ const showTab = (tab) => {
         if(tabIter !== tab)
         {
             tabIter.classList.add('hidden')
-            const loaderDelegate = tabIter.getAttribute('data-loader')
-            if(loaderDelegate) {
-                setTimeout(() => {
-                    eval(loaderDelegate + '()')
-                }, 2000)
-            }
         }
     })
 
     const delay = tab.getAttribute('data-delay') || 10000
 
     tabIdx = (tabIdx + 1) % tabs.length
-
     setTimeout(() => {
         showTab(tabs[tabIdx])
+
+        // recharge les données pour le prochain cycle
+        const loaderDelegate = tab.getAttribute('data-loader')
+        if(loaderDelegate) {
+            setTimeout(() => {
+                eval(loaderDelegate + '()')
+            }, 2000)
+        }
     }, delay)
 }
 
