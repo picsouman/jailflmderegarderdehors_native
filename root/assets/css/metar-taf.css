@@ -3,7 +3,10 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+}
+
+#metar-taf .bloc:not(:last-child) {
+    margin-right: 1vw;
 }
 
 #metar-taf .bloc {
@@ -14,7 +17,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 0.5rem;
     min-width: 40%;
     max-width: 40%;
     min-height: 50%;
@@ -41,4 +43,9 @@
 
 #metar-taf .data:not(:last-child) {
     border-bottom: 1px grey solid;
+    padding-bottom: 0.5rem;
+}
+
+#metar-taf .data:not(:first-child) {
+    padding-top: 0.5rem;
 }

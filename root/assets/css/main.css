@@ -22,7 +22,7 @@ img, picture, video, canvas, svg {
     height: 100%;
     background: lightblue no-repeat center center fixed;
     background-size: cover;
-    transition: background 1s ease;
+    /*transition: background 1s ease;*/
 }
 
 #viewport.bg-final {
@@ -48,12 +48,15 @@ nav ol {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 2vw;
 }
 
 nav ol li {
     text-decoration: none;
     list-style: none;
+}
+
+nav ol li:not(:last-child) {
+    margin-right: 1.5vw;
 }
 
 nav ol li img {
@@ -102,7 +105,7 @@ nav ol li a:hover {
     flex-grow: 1;
     position: absolute;
     left: 0;
-    transition: left 1s ease, opacity 0.5s ease;
+    /*transition: left 1s ease, opacity 0.5s ease;*/
     opacity: 1;
     overflow: hidden;
     width: 100%;

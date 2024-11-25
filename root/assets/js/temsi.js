@@ -1,4 +1,4 @@
-let { pdfjsLib } = globalThis;
+const pdfjsLib = window['pdfjs-dist/build/pdf']
 
 const getTextContent = (element, tagName) => {
     const tag = element.getElementsByTagName(tagName)[0];
@@ -77,7 +77,8 @@ const loadAndRenderPDF = async (
     bottomPixelReduction,
     leftPixelReduction
 ) => {
-    pdfjsLib.GlobalWorkerOptions.workerSrc = '/assets/js/utils/pdf.worker.mjs';
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '/assets/js/utils/pdf.worker.min.js'
 
     const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
     const page = await pdf.getPage(1);
