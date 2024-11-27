@@ -60,3 +60,8 @@ const showTab = (tab) => {
 }
 
 showTab(tabs[tabIdx])
+
+// temporaire pour contrer l'erreur 5 sur raspberry...
+setTimeout(() => {
+    location.reload()
+}, 1800 * 1000)
