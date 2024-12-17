@@ -11,6 +11,11 @@ html, body {
     letter-spacing: 0.05rem;
 }
 
+html.no-cursor {
+    cursor: none;
+    pointer-events: none;
+}
+
 img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;

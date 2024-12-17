@@ -65,3 +65,22 @@ showTab(tabs[tabIdx])
 setTimeout(() => {
     location.reload()
 }, 1800 * 1000)
+
+let mouseMoveTimout = null
+const hideMouseDelay = (delayMs) => {
+    if(mouseMoveTimout) {
+        clearInterval(mouseMoveTimout)
+        mouseMoveTimout = null
+    }
+
+    mouseMoveTimout = setTimeout(() => {
+        document.documentElement.classList.add('no-cursor')
+    }, delayMs)
+}
+
+// gestion de la sourie qui se cache
+hideMouseDelay(1)
+document.addEventListener('mousemove', (e) => {
+    document.documentElement.classList.remove('no-cursor')
+    hideMouseDelay(15000)
+})
