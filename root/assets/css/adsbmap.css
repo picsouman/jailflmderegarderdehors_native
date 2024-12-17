@@ -1,0 +1,14 @@
+#adsbmap{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#adsbmap iframe {
+    flex-grow: 1;
+    border: none;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    height: 98%;
+}

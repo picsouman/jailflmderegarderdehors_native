@@ -33,8 +33,24 @@ img, picture, video, canvas, svg {
     background-image: url('../images/backgrounds/clouds.jpg');
 }
 
-#viewport.bg-wind {
-    background-image: url('../images/backgrounds/windsock.webp');
+#viewport.bg-taxiway {
+    background-image: url('../images/backgrounds/taxiwaymacon.jpg');
+}
+
+#viewport.bg-cumulonimbus {
+    background-image: url('../images/backgrounds/cumulonimbus.jpg');
+}
+
+#viewport.bg-patrouille {
+    background-image: url('../images/backgrounds/patrouille.jpg');
+}
+
+#viewport.bg-brume {
+    background-image: url('../images/backgrounds/brume.jpg');
+}
+
+#viewport.bg-hangar {
+    background-image: url('../images/backgrounds/hangarnuit.jpg');
 }
 
 nav {
