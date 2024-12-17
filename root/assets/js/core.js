@@ -10,10 +10,34 @@ Array.prototype.forEach.call(tabs, function (tab) {
     }
 
     // génération du menu
-    navOlElement.innerHTML += '<li><a id="menu-' + tab.id + '" href="#">' + tab.getAttribute('data-title') + '</a></li>'
+    let liElement = document.createElement("li")
+    let aElement = document.createElement("a")
+    aElement.id = 'menu-' + tab.id
+    aElement.href = "#"
+    aElement.innerText = tab.getAttribute('data-title')
+    liElement.appendChild(aElement)
+    navOlElement.appendChild(liElement)
+
+    aElement.onclick = function () {
+        showTab(tab, 60000)
+    }
 })
 
-const showTab = (tab) => {
+let tabSwitchTimeout = null
+const showTab = (tab, forcedDelay = null) => {
+    clearTimeout(tabSwitchTimeout)
+
+    const visibleTabs = [...tabs].filter(tabIter => !tabIter.classList.contains('hidden'))
+    if (visibleTabs.length > 0) {
+        // recharge les données pour le prochain cycle
+        const loaderDelegate = visibleTabs[0].getAttribute('data-loader')
+        if(loaderDelegate) {
+            setTimeout(() => {
+                eval(loaderDelegate + '()')
+            }, 1000)
+        }
+    }
+
     tab.classList.remove('hidden')
 
     const viewPortElement = document.getElementById("viewport")
@@ -43,19 +67,13 @@ const showTab = (tab) => {
         }
     })
 
-    const delay = tab.getAttribute('data-delay') || 10000
+    const delay = forcedDelay
+        || tab.getAttribute('data-delay')
+        || 10000
 
-    tabIdx = (tabIdx + 1) % tabs.length
-    setTimeout(() => {
+    tabIdx = ([...tabs].indexOf(tab) + 1) % tabs.length
+    tabSwitchTimeout = setTimeout(() => {
         showTab(tabs[tabIdx])
-
-        // recharge les données pour le prochain cycle
-        const loaderDelegate = tab.getAttribute('data-loader')
-        if(loaderDelegate) {
-            setTimeout(() => {
-                eval(loaderDelegate + '()')
-            }, 2000)
-        }
     }, delay)
 }
 
