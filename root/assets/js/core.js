@@ -80,9 +80,9 @@ const showTab = (tab, forcedDelay = null) => {
 showTab(tabs[tabIdx])
 
 // temporaire pour contrer l'erreur 5 sur raspberry...
-setTimeout(() => {
-    location.reload()
-}, 1800 * 1000)
+// setTimeout(() => {
+//     location.reload()
+// }, 1800 * 1000)
 
 let mouseMoveTimout = null
 const hideMouseDelay = (delayMs) => {
