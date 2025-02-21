@@ -52,12 +52,18 @@ const getAvailableTemsi = () => {
         })
 }
 
+let loadTemsiCache = null
 const loadTemsi = () => {
     const pdfCanvas = document.querySelector('#temsi canvas')
 
     try {
         let currentDate = new Date()
         currentDate = new Date(currentDate.getTime() + currentDate.getTimezoneOffset())
+
+        if(loadTemsiCache != null && (currentDate - loadTemsiCache) / (1000 * 3600) < 1) {
+            return
+        }
+        loadTemsiCache = currentDate
 
         getAvailableTemsi().then(charts => {
             const currentDateTime = currentDate.getTime()
